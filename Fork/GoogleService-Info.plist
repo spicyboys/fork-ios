@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>10745776339-t95li1afvsm5rqvm8c7jfiu9o6t4qqlj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.10745776339-t95li1afvsm5rqvm8c7jfiu9o6t4qqlj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCG2_jHc7jG2hjvcgjfJtkAU0Ye16ZY734</string>
+	<key>GCM_SENDER_ID</key>
+	<string>10745776339</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Pipeco.Fork</string>
+	<key>PROJECT_ID</key>
+	<string>fork-befcd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fork-befcd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:10745776339:ios:f364228d18effdd42c6c26</string>
+</dict>
+</plist>
