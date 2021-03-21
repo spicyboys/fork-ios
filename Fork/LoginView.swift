@@ -10,7 +10,8 @@ import SwiftUI
 import GoogleSignIn
 
 struct LoginView: View {
-    @EnvironmentObject var googleDelegate: GoogleDelegate
+    
+    @ObservedObject var info : AppDelegate
     
     var body: some View {
         VStack{
@@ -19,7 +20,8 @@ struct LoginView: View {
                 .padding()
             Text("Sign In Below")
             Button(action: {
-                GIDSignIn.sharedInstance().signIn()
+                GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
+                GIDSignIn.sharedInstance()?.signIn()
             }){
                 Text("Sign In with Google")
             }.padding().background(Color.gray).foregroundColor(.white)
@@ -27,9 +29,9 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//    }
+//}
 
