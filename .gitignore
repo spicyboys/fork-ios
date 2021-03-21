@@ -1,3 +1,6 @@
+## General Stuff
+*.DS_Store
+
 ## User settings
 xcuserdata/
 
