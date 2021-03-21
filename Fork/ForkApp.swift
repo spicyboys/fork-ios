@@ -29,7 +29,6 @@ struct ForkApp: App {
             LoginView()
         }
     }
-    
 }
 
 class LoginDelegate: NSObject,UIApplicationDelegate,GIDSignInDelegate {
