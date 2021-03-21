@@ -13,30 +13,26 @@ import UIKit
 @main
 struct ForkApp: App {
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
-    var body: some Scene {
-        WindowGroup {
-            LoginView(info: self.delegate)
-        }
-    }
+    @UIApplicationDelegateAdaptor(LoginDelegate.self) var loginDelegate
     
-}
-
-class AppDelegate: NSObject,UIApplicationDelegate,GIDSignInDelegate,ObservableObject {
-    @Published var uid = "";
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    init() {
         // Initialize Firebase
         FirebaseApp.configure()
         
         // Setup the Google sign-in instance
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
-        
-        return true;
+        GIDSignIn.sharedInstance().delegate = self.loginDelegate
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            LoginView()
+        }
     }
     
+}
+
+class LoginDelegate: NSObject,UIApplicationDelegate,GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // guard against the user cancelling sign-in or mis-entering their credentials
         guard let user = user else {
@@ -47,8 +43,6 @@ class AppDelegate: NSObject,UIApplicationDelegate,GIDSignInDelegate,ObservableOb
         let credential = GoogleAuthProvider.credential(withIDToken: user.authentication.idToken, accessToken: user.authentication.accessToken)
         
         // Sign into firebase using the google credentials
-        Auth.auth().signIn(with: credential) { (result, err) in
-            self.uid = (result?.user.uid)!
-        }
+        Auth.auth().signIn(with: credential)
     }
 }

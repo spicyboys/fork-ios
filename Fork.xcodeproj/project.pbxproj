@@ -12,7 +12,6 @@
 		123149A12600410E00E29F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 123149A02600410E00E29F9E /* Assets.xcassets */; };
 		123149A42600410E00E29F9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 123149A32600410E00E29F9E /* Preview Assets.xcassets */; };
 		123149BF2600430900E29F9E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123149BE2600430900E29F9E /* LoginView.swift */; };
-		123149C32600540A00E29F9E /* GoogleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123149C22600540A00E29F9E /* GoogleDelegate.swift */; };
 		123149C62600563800E29F9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 123149C52600563800E29F9E /* GoogleService-Info.plist */; };
 		592F1A705FD36E5D43F86BF3 /* Pods_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */; };
 /* End PBXBuildFile section */
@@ -25,7 +24,6 @@
 		123149A32600410E00E29F9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		123149A52600410E00E29F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		123149BE2600430900E29F9E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		123149C22600540A00E29F9E /* GoogleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDelegate.swift; sourceTree = "<group>"; };
 		123149C52600563800E29F9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F210EC4DF5D095958A9CBA /* Pods-Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.debug.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				1231499C2600410A00E29F9E /* ForkApp.swift */,
 				123149BE2600430900E29F9E /* LoginView.swift */,
 				1231499E2600410A00E29F9E /* HomeView.swift */,
-				123149C22600540A00E29F9E /* GoogleDelegate.swift */,
 				123149A02600410E00E29F9E /* Assets.xcassets */,
 				123149C52600563800E29F9E /* GoogleService-Info.plist */,
 				123149A52600410E00E29F9E /* Info.plist */,
@@ -237,7 +234,6 @@
 				123149BF2600430900E29F9E /* LoginView.swift in Sources */,
 				1231499F2600410A00E29F9E /* HomeView.swift in Sources */,
 				1231499D2600410A00E29F9E /* ForkApp.swift in Sources */,
-				123149C32600540A00E29F9E /* GoogleDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

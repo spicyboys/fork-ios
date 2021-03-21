@@ -10,9 +10,7 @@ import SwiftUI
 import GoogleSignIn
 
 struct LoginView: View {
-    
-    @ObservedObject var info : AppDelegate
-    
+        
     var body: some View {
         VStack{
             Text("Welcome to Fork")
