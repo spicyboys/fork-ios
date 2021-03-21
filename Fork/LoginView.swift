@@ -17,14 +17,20 @@ struct LoginView: View {
                 .font(.largeTitle)
                 .padding()
             Text("Sign In Below")
-            Button(action: {
-                GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-                GIDSignIn.sharedInstance()?.signIn()
-            }){
-                Text("Sign In with Google")
-            }.padding().background(Color.gray).foregroundColor(.white)
+            SignInButton()
         }
     }
+}
+
+struct SignInButton: UIViewRepresentable {
+    func makeUIView(context: Context) -> GIDSignInButton {
+        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
+        let button = GIDSignInButton()
+        button.colorScheme = .light
+        return button
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {}
 }
 
 struct LoginView_Previews: PreviewProvider {
