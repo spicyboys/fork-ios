@@ -30,18 +30,3 @@ struct ForkApp: App {
         }
     }
 }
-
-class LoginDelegate: NSObject,UIApplicationDelegate,GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        // guard against the user cancelling sign-in or mis-entering their credentials
-        guard let user = user else {
-            return
-        }
-        
-        // Get the credentials form the google auth
-        let credential = GoogleAuthProvider.credential(withIDToken: user.authentication.idToken, accessToken: user.authentication.accessToken)
-        
-        // Sign into firebase using the google credentials
-        Auth.auth().signIn(with: credential)
-    }
-}

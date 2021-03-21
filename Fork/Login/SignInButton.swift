@@ -1,26 +1,12 @@
 //
-//  LoginView.swift
+//  SignInButton.swift
 //  Fork
 //
-//  Created by Jacob Williamson on 3/15/21.
+//  Created by Robert Lynch on 3/21/21.
 //
-
 
 import SwiftUI
 import GoogleSignIn
-
-struct LoginView: View {
-        
-    var body: some View {
-        VStack{
-            Text("Welcome to Fork")
-                .font(.largeTitle)
-                .padding()
-            Text("Sign In Below")
-            SignInButton()
-        }
-    }
-}
 
 struct SignInButton: UIViewRepresentable {
     func makeUIView(context: Context) -> GIDSignInButton {
@@ -31,10 +17,4 @@ struct SignInButton: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {}
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
 }
