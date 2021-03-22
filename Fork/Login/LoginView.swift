@@ -15,7 +15,7 @@ struct LoginView: View {
                 .font(.largeTitle)
                 .padding()
             Text("Sign In Below")
-            SignInButton()
+            SignInButton().padding()
         }
     }
 }
