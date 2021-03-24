@@ -14,8 +14,8 @@
 		123149BF2600430900E29F9E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123149BE2600430900E29F9E /* LoginView.swift */; };
 		123149C62600563800E29F9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 123149C52600563800E29F9E /* GoogleService-Info.plist */; };
 		592F1A705FD36E5D43F86BF3 /* Pods_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */; };
-		A5484FAC2607EF6400E1E75C /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FAB2607EF6400E1E75C /* LoginDelegate.swift */; };
 		A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FAF2607EFDE00E1E75C /* SignInButton.swift */; };
+		A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F210EC4DF5D095958A9CBA /* Pods-Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.debug.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.debug.xcconfig"; sourceTree = "<group>"; };
 		6EBC06BF951A49B154205F03 /* Pods-Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.release.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.release.xcconfig"; sourceTree = "<group>"; };
-		A5484FAB2607EF6400E1E75C /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginDelegate.swift; path = ../../../../LoginDelegate.swift; sourceTree = "<group>"; };
 		A5484FAF2607EFDE00E1E75C /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 		A5484FAA2607EF4500E1E75C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */,
 				123149BE2600430900E29F9E /* LoginView.swift */,
-				A5484FAB2607EF6400E1E75C /* LoginDelegate.swift */,
 				A5484FAF2607EFDE00E1E75C /* SignInButton.swift */,
 			);
 			path = Login;
@@ -246,9 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */,
+				A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */,
 				123149BF2600430900E29F9E /* LoginView.swift in Sources */,
 				1231499F2600410A00E29F9E /* HomeView.swift in Sources */,
-				A5484FAC2607EF6400E1E75C /* LoginDelegate.swift in Sources */,
 				1231499D2600410A00E29F9E /* ForkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
