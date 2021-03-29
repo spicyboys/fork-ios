@@ -16,6 +16,8 @@
 		592F1A705FD36E5D43F86BF3 /* Pods_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */; };
 		A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FAF2607EFDE00E1E75C /* SignInButton.swift */; };
 		A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */; };
+		A552D22926127BF100640849 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552D22826127BF100640849 /* SessionStore.swift */; };
+		A552D22C26127CC100640849 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552D22B26127CC100640849 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		6EBC06BF951A49B154205F03 /* Pods-Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.release.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.release.xcconfig"; sourceTree = "<group>"; };
 		A5484FAF2607EFDE00E1E75C /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
+		A552D22826127BF100640849 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		A552D22B26127CC100640849 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 		1231499B2600410A00E29F9E /* Fork */ = {
 			isa = PBXGroup;
 			children = (
+				A552D22826127BF100640849 /* SessionStore.swift */,
 				A5484FAA2607EF4500E1E75C /* Login */,
 				1231499C2600410A00E29F9E /* ForkApp.swift */,
 				1231499E2600410A00E29F9E /* HomeView.swift */,
@@ -74,6 +79,7 @@
 				123149C52600563800E29F9E /* GoogleService-Info.plist */,
 				123149A52600410E00E29F9E /* Info.plist */,
 				123149A22600410E00E29F9E /* Preview Content */,
+				A552D22B26127CC100640849 /* RootView.swift */,
 			);
 			path = Fork;
 			sourceTree = "<group>";
@@ -245,9 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A552D22926127BF100640849 /* SessionStore.swift in Sources */,
 				A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */,
 				A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */,
 				123149BF2600430900E29F9E /* LoginView.swift in Sources */,
+				A552D22C26127CC100640849 /* RootView.swift in Sources */,
 				1231499F2600410A00E29F9E /* HomeView.swift in Sources */,
 				1231499D2600410A00E29F9E /* ForkApp.swift in Sources */,
 			);

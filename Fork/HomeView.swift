@@ -6,16 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeView: View {
+    let user: User
+    
     var body: some View {
-        Text("")
-           // .padding()
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        Text(user.displayName!)
     }
 }

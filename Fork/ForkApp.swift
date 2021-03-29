@@ -14,10 +14,14 @@ import UIKit
 struct ForkApp: App {
     
     @UIApplicationDelegateAdaptor(LoginDelegate.self) var loginDelegate
+    @ObservedObject private var session: SessionStore
     
     init() {
         // Initialize Firebase
         FirebaseApp.configure()
+        
+        // Initialize the app session
+        self.session = SessionStore()
         
         // Setup the Google sign-in instance
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -26,7 +30,7 @@ struct ForkApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            RootView().environmentObject(session)
         }
     }
 }
