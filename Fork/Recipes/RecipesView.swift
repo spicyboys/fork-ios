@@ -7,9 +7,16 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 struct RecipesView: View {
     let user: User
+    @ObservedObject var userRecipes: UserRecipes;
+    
+    init(_ user: User) {
+        self.user = user;
+        self.userRecipes = UserRecipes(user);
+    }
     
     var body: some View {
         VStack{
@@ -23,9 +30,10 @@ struct RecipesView: View {
                         .font(.title3)
                         .foregroundColor(.black)
                 })
-            }
-            //list(0..<5){ item in
-            
+                List((self.userRecipes.recipes ?? []), id: \.name) { recipe in
+                    Text(recipe.name)
+                }
+            }            
         }
     }
 }

@@ -6,9 +6,9 @@ target 'Fork' do
   use_frameworks!
 
   # Pods for Fork
-pod 'Firebase/Auth'
-pod 'Firebase'
-pod 'GoogleSignIn'
-pod 'SDWebImageSwiftUI'
-
+  pod 'Firebase/Auth'
+  pod 'Firebase'
+  pod 'GoogleSignIn'
+  pod 'SDWebImageSwiftUI'
+  pod 'Firebase/Firestore'
 end

@@ -18,7 +18,7 @@ struct HomeView: View {
         WebImage(url: user.photoURL)
             .padding()
         TabView(selection: $selection){
-            RecipesView(user: user)
+            RecipesView(user)
                 .tabItem {
                     Text("Recipes")
                     Image(systemName: "heart.fill")
