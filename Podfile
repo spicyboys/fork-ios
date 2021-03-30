@@ -9,5 +9,6 @@ target 'Fork' do
 pod 'Firebase/Auth'
 pod 'Firebase'
 pod 'GoogleSignIn'
+pod 'SDWebImageSwiftUI'
 
 end

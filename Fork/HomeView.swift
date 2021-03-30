@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import SDWebImageSwiftUI
 
 struct HomeView: View {
     let user: User
@@ -14,6 +15,8 @@ struct HomeView: View {
     @State private var selection = 0
     
     var body: some View {
+        WebImage(url: user.photoURL)
+            .padding()
         TabView(selection: $selection){
             RecipesView(user: user)
                 .tabItem {
