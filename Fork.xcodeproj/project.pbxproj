@@ -14,6 +14,7 @@
 		123149BF2600430900E29F9E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123149BE2600430900E29F9E /* LoginView.swift */; };
 		123149C62600563800E29F9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 123149C52600563800E29F9E /* GoogleService-Info.plist */; };
 		123CA6722612B04B0045312E /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123CA6712612B04B0045312E /* RecipesView.swift */; };
+		123CA6752612BA2C0045312E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123CA6742612BA2C0045312E /* SettingsView.swift */; };
 		592F1A705FD36E5D43F86BF3 /* Pods_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */; };
 		A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FAF2607EFDE00E1E75C /* SignInButton.swift */; };
 		A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */; };
@@ -31,6 +32,7 @@
 		123149BE2600430900E29F9E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		123149C52600563800E29F9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		123CA6712612B04B0045312E /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		123CA6742612BA2C0045312E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F210EC4DF5D095958A9CBA /* Pods-Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.debug.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.debug.xcconfig"; sourceTree = "<group>"; };
 		6EBC06BF951A49B154205F03 /* Pods-Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.release.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				1231499C2600410A00E29F9E /* ForkApp.swift */,
 				1231499E2600410A00E29F9E /* HomeView.swift */,
 				123CA6712612B04B0045312E /* RecipesView.swift */,
+				123CA6742612BA2C0045312E /* SettingsView.swift */,
 				123149A02600410E00E29F9E /* Assets.xcassets */,
 				123149C52600563800E29F9E /* GoogleService-Info.plist */,
 				123149A52600410E00E29F9E /* Info.plist */,
@@ -257,6 +260,7 @@
 				A552D22926127BF100640849 /* SessionStore.swift in Sources */,
 				A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */,
 				123CA6722612B04B0045312E /* RecipesView.swift in Sources */,
+				123CA6752612BA2C0045312E /* SettingsView.swift in Sources */,
 				A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */,
 				123149BF2600430900E29F9E /* LoginView.swift in Sources */,
 				A552D22C26127CC100640849 /* RootView.swift in Sources */,

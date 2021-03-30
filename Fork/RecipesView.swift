@@ -6,15 +6,26 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct RecipesView: View {
+    let user: User
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct RecipesView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipesView()
+        VStack{
+            HStack {
+                Text("My Recipes")
+                    .font(.largeTitle)
+                Button(action: {
+                    //Switch to AddRecipeView
+                }, label: {
+                    Text("+")
+                        .font(.title3)
+                        .foregroundColor(.black)
+                })
+            }
+            //list(0..<5){ item in
+            
+        }
     }
 }

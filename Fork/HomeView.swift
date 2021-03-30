@@ -15,17 +15,17 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $selection){
-            Text("Hi \(user.displayName!), this is the Recipes UI")
+            RecipesView(user: user)
                 .tabItem {
                     Text("Recipes")
+                    Image(systemName: "heart.fill")
                 }.tag(0)
-            Text("Hi \(user.displayName!), this is the Settings UI")
-                .font(.title3)
+            SettingsView(user: user)
                 .tabItem {
+                    Image(systemName: "gearshape.fill")
                     Text("Settings")
                 }.tag(1)
         }
-        .font(.largeTitle)
     }
 
 }

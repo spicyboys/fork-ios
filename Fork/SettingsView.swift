@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SettingsView: View {
+    let user: User
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hi \(user.displayName!), this is the Settings UI")
+            .padding()
+            .font(.title2)
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
