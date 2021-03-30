@@ -30,10 +30,12 @@ struct RecipesView: View {
                         .font(.title3)
                         .foregroundColor(.black)
                 })
-                List((self.userRecipes.recipes ?? []), id: \.name) { recipe in
-                    Text(recipe.name)
-                }
-            }            
+            }
+            List((self.userRecipes.recipes ?? []), id: \.name)
+            { recipe in
+                Text(recipe.name)
+            }
+            }
         }
     }
-}
+

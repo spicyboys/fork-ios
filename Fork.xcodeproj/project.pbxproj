@@ -79,17 +79,12 @@
 		1231499B2600410A00E29F9E /* Fork */ = {
 			isa = PBXGroup;
 			children = (
-				A552D24D2612CED600640849 /* Recipes */,
-				A552D22826127BF100640849 /* SessionStore.swift */,
-				A5484FAA2607EF4500E1E75C /* Login */,
 				1231499C2600410A00E29F9E /* ForkApp.swift */,
-				1231499E2600410A00E29F9E /* HomeView.swift */,
-				123CA6742612BA2C0045312E /* SettingsView.swift */,
-				123149A02600410E00E29F9E /* Assets.xcassets */,
-				123149C52600563800E29F9E /* GoogleService-Info.plist */,
 				123149A52600410E00E29F9E /* Info.plist */,
-				123149A22600410E00E29F9E /* Preview Content */,
-				A552D22B26127CC100640849 /* RootView.swift */,
+				123149A02600410E00E29F9E /* Assets.xcassets */,
+				12327DDB2612F70C006AC4DA /* Authorization */,
+				12327DDA2612F700006AC4DA /* Data Model */,
+				12327DD92612F6F3006AC4DA /* UI */,
 			);
 			path = Fork;
 			sourceTree = "<group>";
@@ -100,6 +95,55 @@
 				123149A32600410E00E29F9E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		12327DD92612F6F3006AC4DA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				12327DE12612F796006AC4DA /* Views */,
+				12327DDC2612F72C006AC4DA /* View Components */,
+				123149A22600410E00E29F9E /* Preview Content */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		12327DDA2612F700006AC4DA /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				A552D2522612CF3800640849 /* Recipe.swift */,
+				A552D24E2612CEF400640849 /* UserRecipes.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		12327DDB2612F70C006AC4DA /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				A552D22826127BF100640849 /* SessionStore.swift */,
+				123149C52600563800E29F9E /* GoogleService-Info.plist */,
+				A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		12327DDC2612F72C006AC4DA /* View Components */ = {
+			isa = PBXGroup;
+			children = (
+				A5484FAF2607EFDE00E1E75C /* SignInButton.swift */,
+			);
+			path = "View Components";
+			sourceTree = "<group>";
+		};
+		12327DE12612F796006AC4DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1231499E2600410A00E29F9E /* HomeView.swift */,
+				123149BE2600430900E29F9E /* LoginView.swift */,
+				123CA6742612BA2C0045312E /* SettingsView.swift */,
+				123CA6712612B04B0045312E /* RecipesView.swift */,
+				A552D22B26127CC100640849 /* RootView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		14DB0E3F94177B1F612C6AC3 /* Frameworks */ = {
@@ -117,26 +161,6 @@
 				6EBC06BF951A49B154205F03 /* Pods-Fork.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		A5484FAA2607EF4500E1E75C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */,
-				123149BE2600430900E29F9E /* LoginView.swift */,
-				A5484FAF2607EFDE00E1E75C /* SignInButton.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		A552D24D2612CED600640849 /* Recipes */ = {
-			isa = PBXGroup;
-			children = (
-				123CA6712612B04B0045312E /* RecipesView.swift */,
-				A552D24E2612CEF400640849 /* UserRecipes.swift */,
-				A552D2522612CF3800640849 /* Recipe.swift */,
-			);
-			path = Recipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,7 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Fork/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 5FHTGY86RA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Fork/Info.plist;
@@ -434,7 +458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Fork/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 5FHTGY86RA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Fork/Info.plist;
