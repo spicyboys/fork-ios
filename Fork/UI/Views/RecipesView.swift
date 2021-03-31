@@ -18,11 +18,15 @@ struct RecipesView: View {
         self.userRecipes = UserRecipes(user);
     }
     
+    @State private var searchText = ""
+    
     var body: some View {
-        VStack{
-            HStack {
+        VStack(alignment: .leading){
+            //Header
+            HStack{
                 Text("My Recipes")
                     .font(.largeTitle)
+                    .padding()
                 Button(action: {
                     //Switch to AddRecipeView
                 }, label: {
@@ -31,11 +35,16 @@ struct RecipesView: View {
                         .foregroundColor(.black)
                 })
             }
-            List((self.userRecipes.recipes ?? []), id: \.name)
+            //Search Bar
+            SearchBar(text: $searchText)
+                                .padding(.top, -30)
+            
+            // Recipe List
+            List((self.userRecipes.recipes ?? []).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) }), id: \.name)
             { recipe in
                 Text(recipe.name)
             }
-            }
         }
     }
+}
 
