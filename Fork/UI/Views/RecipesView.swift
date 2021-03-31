@@ -19,32 +19,40 @@ struct RecipesView: View {
     }
     
     @State private var searchText = ""
+    @State private var isAddingRecipe = false
     
     var body: some View {
-        VStack(alignment: .leading){
-            //Header
-            HStack{
-                Text("My Recipes")
-                    .font(.largeTitle)
-                    .padding()
-                Button(action: {
-                    //Switch to AddRecipeView
-                }, label: {
-                    Text("+")
-                        .font(.title3)
-                        .foregroundColor(.black)
-                })
-            }
-            //Search Bar
-            SearchBar(text: $searchText)
-                                .padding(.top, -30)
-            
-            // Recipe List
-            List((self.userRecipes.recipes ?? []).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) }), id: \.name)
-            { recipe in
-                Text(recipe.name)
+            VStack(alignment: .leading){
+                //Header
+                HStack{
+                    Text("My Recipes")
+                        .font(.largeTitle)
+                        .padding()
+                    Button(action: {
+                        self.isAddingRecipe.toggle()
+                    }, label: {
+                        Text("+")
+                            .font(.title3)
+                            .foregroundColor(.black)
+                    }).sheet(isPresented: $isAddingRecipe, onDismiss: {
+                        //On dismess of AddRecipe
+                    }){
+                        AddRecipeView(user)
+                    }
+                }
+                .padding()
+                
+                //Search Bar
+                SearchBar(text: $searchText)
+                    .padding(.top, -30)
+                
+                // Recipe List
+                List((self.userRecipes.recipes ?? []).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) }), id: \.name)
+                { recipe in
+                    Text(recipe.name)
+                }
+                .padding()
             }
         }
     }
-}
 

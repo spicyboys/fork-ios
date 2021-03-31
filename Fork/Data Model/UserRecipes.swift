@@ -13,6 +13,7 @@ class UserRecipes: ObservableObject {
         Firestore.firestore()
             .collection("recipes")
             .whereField("author_uid", isEqualTo: user.uid)
+            .order(by: "name")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
