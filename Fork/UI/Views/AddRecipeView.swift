@@ -23,10 +23,6 @@ struct AddRecipeView: View {
     
     @State private var showPopover = false
     
-    init(_ user: User) {
-        self.user = user;
-    }
-    
     var body: some View {
         VStack(alignment: .leading){
             
