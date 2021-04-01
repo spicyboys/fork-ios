@@ -12,8 +12,6 @@ import Combine
 
 struct AddRecipeView: View {
     
-    let user: User
-    @ObservedObject var userRecipes: UserRecipes;
     @State private var title: String = ""
     @State private var defaultServings = NumbersOnly()
     @State private var totalTime = NumbersOnly()
@@ -22,12 +20,6 @@ struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": "whole"]),Ingredient(["name": "olive oil","amount":2.0,"measurement": "tbsp"]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": "cups"])]
     
     @State private var directions: [Direction] = []
-    
-    
-    init(_ user: User) {
-        self.user = user;
-        self.userRecipes = UserRecipes(user);
-    }
     
     var body: some View {
         VStack(alignment: .leading){
@@ -96,7 +88,7 @@ struct AddRecipeView: View {
                     .padding(.trailing)
                     .buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        //Delete Ingredient
+                        self.ingredients = self.ingredients.filter { $0.name != ingredient.name }
                     }, label: {
                         Text("Delete")
                             .foregroundColor(.black)
