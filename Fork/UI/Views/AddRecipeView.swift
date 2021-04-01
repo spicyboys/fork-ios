@@ -12,7 +12,6 @@ import Combine
 
 struct AddRecipeView: View {
     
-    let user: User
     @State private var title: String = ""
     @State private var defaultServings = NumbersOnly()
     @State private var totalTime = NumbersOnly()
@@ -101,7 +100,7 @@ struct AddRecipeView: View {
                     .padding(.trailing)
                     .buttonStyle(PlainButtonStyle())
                     Button(action: {
-                        //Delete Ingredient
+                        self.ingredients = self.ingredients.filter { $0.name != ingredient.name }
                     }, label: {
                         Text("Delete")
                             .foregroundColor(.black)

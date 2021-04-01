@@ -37,7 +37,7 @@ struct RecipesView: View {
                     }).sheet(isPresented: $isAddingRecipe, onDismiss: {
                         //On dismess of AddRecipe
                     }){
-                        AddRecipeView(user)
+                        AddRecipeView()
                     }
                 }
                 .padding()
