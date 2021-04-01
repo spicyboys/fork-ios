@@ -13,7 +13,6 @@ import Combine
 struct AddRecipeView: View {
     
     let user: User
-    @ObservedObject var userRecipes: UserRecipes;
     @State private var title: String = ""
     @State private var defaultServings = NumbersOnly()
     @State private var totalTime = NumbersOnly()
@@ -23,24 +22,28 @@ struct AddRecipeView: View {
     
     @State private var directions: [Direction] = []
     
+    @State private var showPopover = false
     
     init(_ user: User) {
         self.user = user;
-        self.userRecipes = UserRecipes(user);
     }
     
     var body: some View {
         VStack(alignment: .leading){
+            
+            //Header
             Text("Add a Recipe")
                 .font(.largeTitle)
                 .padding()
             
+            //Title
             HStack{
                 Text("Title:")
                 TextField("Title", text: $title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }.padding(.leading)
             
+            //Default Servings
             HStack{
                 Text("Default Servings:")
                 TextField("Default Servings", text: $defaultServings.value)
@@ -49,6 +52,7 @@ struct AddRecipeView: View {
             }
             .padding(.leading)
             
+            //Total Time
             HStack{
                 Text("Total Time:")
                 TextField("Total Time", text: $totalTime.value)
@@ -57,6 +61,7 @@ struct AddRecipeView: View {
             }
             .padding(.leading)
             
+            //Description
             HStack(alignment: .top){
                 Text("Description:")
                 TextEditor(text: $description)
@@ -64,12 +69,12 @@ struct AddRecipeView: View {
             }
             .padding(.leading)
             .frame(minWidth: 0,
-                         maxWidth: .infinity,
-                         minHeight: 0,
-                         maxHeight: 100,
-                         alignment: .topLeading
-                 )
+                   maxWidth: .infinity,
+                   minHeight: 0,
+                   maxHeight: 60,
+                   alignment: .topLeading)
             
+            //Tags
             HStack(alignment: .top){
                 Text("Tags:")
                 TextEditor(text: $tags)
@@ -77,12 +82,12 @@ struct AddRecipeView: View {
             }
             .padding(.leading)
             .frame(minWidth: 0,
-                         maxWidth: .infinity,
-                         minHeight: 0,
-                         maxHeight: 100,
-                         alignment: .topLeading
-                 )
-                    
+                   maxWidth: .infinity,
+                   minHeight: 0,
+                   maxHeight: 60,
+                   alignment: .topLeading)
+            
+            //Ingredients
             List(self.ingredients, id: \.name){ ingredient in
                 HStack{
                     Text("\(Int(ingredient.amount)) \(ingredient.measurement) \(ingredient.name)")
@@ -102,6 +107,16 @@ struct AddRecipeView: View {
                             .foregroundColor(.black)
                     })
                     .buttonStyle(PlainButtonStyle())
+                }
+            }
+            Button("Add Ingredient"){
+                showPopover = true
+            }
+            .popover(isPresented: $showPopover) {
+                HStack(alignment: .top){
+                    Text("Amount")
+                        .font(.headline)
+                        .padding()
                 }
             }
         }
