@@ -19,8 +19,9 @@ struct AddRecipeView: View {
     @State private var totalTime = NumbersOnly()
     @State private var description: String = ""
     @State private var tags: String = ""
-    @State private var ingredients: [String] = []
-    @State private var directions: [String] = []
+    @State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": "whole"]),Ingredient(["name": "olive oil","amount":2.0,"measurement": "tbsp"]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": "cups"])]
+    
+    @State private var directions: [Direction] = []
     
     
     init(_ user: User) {
@@ -52,13 +53,14 @@ struct AddRecipeView: View {
                 Text("Total Time:")
                 TextField("Total Time", text: $totalTime.value)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
             }
             .padding(.leading)
             
             HStack(alignment: .top){
                 Text("Description:")
                 TextEditor(text: $description)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.green)
             }
             .padding(.leading)
             .frame(minWidth: 0,
@@ -71,7 +73,7 @@ struct AddRecipeView: View {
             HStack(alignment: .top){
                 Text("Tags:")
                 TextEditor(text: $tags)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.blue)
             }
             .padding(.leading)
             .frame(minWidth: 0,
@@ -80,6 +82,29 @@ struct AddRecipeView: View {
                          maxHeight: 100,
                          alignment: .topLeading
                  )
+                    
+            List(self.ingredients, id: \.name){ ingredient in
+                HStack{
+                    Text("\(Int(ingredient.amount)) \(ingredient.measurement) \(ingredient.name)")
+                        .padding(.trailing)
+                    Button(action: {
+                        //Edit Ingredient
+                    }, label: {
+                        Text("Edit")
+                            .foregroundColor(.black)
+                    })
+                    .padding(.trailing)
+                    .buttonStyle(PlainButtonStyle())
+                    Button(action: {
+                        //Delete Ingredient
+                    }, label: {
+                        Text("Delete")
+                            .foregroundColor(.black)
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
         }
+        
     }
 }
