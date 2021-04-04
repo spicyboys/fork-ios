@@ -7,14 +7,33 @@
 
 import Foundation
 
+enum MeasurementType: String, Equatable, Identifiable, CaseIterable {
+    case tsp
+    case tbsp
+    case cp
+    case qrt
+    case pt
+    case gl
+    case ml
+    case L
+    case g
+    case kg
+    case lb
+    case oz
+    case whole
+    case pinch
+    
+    var id: String { self.rawValue }
+}
+    
 public struct Ingredient {
     let name: String
     let amount: Double
-    let measurement: String
+    let measurementType: MeasurementType
     
     init(_ data: [String: Any]){
         self.name = data["name"] as! String;
         self.amount = data["amount"] as! Double;
-        self.measurement = data["measurement"] as! String;
+        self.measurementType = data["measurement"] as! MeasurementType;
     }
 }

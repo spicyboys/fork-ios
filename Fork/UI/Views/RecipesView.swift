@@ -22,25 +22,24 @@ struct RecipesView: View {
     @State private var isAddingRecipe = false
     
     var body: some View {
+        NavigationView{
             VStack(alignment: .leading){
                 //Header
                 HStack{
                     Text("My Recipes")
                         .font(.largeTitle)
                         .padding()
-                    Button(action: {
-                        self.isAddingRecipe.toggle()
-                    }, label: {
+                    NavigationLink(
+                        destination: AddRecipeView(user),
+                        isActive: $isAddingRecipe) {
                         Text("+")
-                            .font(.title3)
                             .foregroundColor(.black)
-                    }).sheet(isPresented: $isAddingRecipe, onDismiss: {
-                        //On dismess of AddRecipe
-                    }){
-                        AddRecipeView()
+                            .font(.largeTitle)
+                        
                     }
                 }
-                .padding()
+                .padding(.bottom)
+                .padding(.leading)
                 
                 //Search Bar
                 SearchBar(text: $searchText)
@@ -50,9 +49,11 @@ struct RecipesView: View {
                 List((self.userRecipes.recipes ?? []).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) }), id: \.name)
                 { recipe in
                     Text(recipe.name)
-                }
-                .padding()
+                }.listStyle(PlainListStyle())
             }
+            .navigationBarHidden(true)
+            .navigationBarTitle(Text(""))
         }
     }
+}
 

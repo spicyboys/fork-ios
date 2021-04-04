@@ -11,17 +11,29 @@ import FirebaseFirestore
 import Combine
 
 struct AddRecipeView: View {
+    //Firestore Objects
+    @ObservedObject var userRecipes: UserRecipes;
     
+    init(_ user: User) {
+        self.userRecipes = UserRecipes(user);
+    }
+    
+    //Form Fields
     @State private var title: String = ""
     @State private var defaultServings = NumbersOnly()
     @State private var totalTime = NumbersOnly()
     @State private var description: String = ""
     @State private var tags: String = ""
-    @State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": "whole"]),Ingredient(["name": "olive oil","amount":2.0,"measurement": "tbsp"]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": "cups"])]
-    
+    @State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": MeasurementType.whole]),Ingredient(["name": "olive oil","amount":2.0,"measurement": MeasurementType.tsp]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": MeasurementType.cp])]
     @State private var directions: [Direction] = []
     
+    //For Adding Ingredient Popover
+    @State private var amount = NumbersOnly()
+    @State private var measurementType: MeasurementType = MeasurementType.whole
+    @State private var name = ""
     @State private var showPopover = false
+    
+    //For Adding Direction Popover
     
     var body: some View {
         VStack(alignment: .leading){
@@ -85,7 +97,7 @@ struct AddRecipeView: View {
             //Ingredients
             List(self.ingredients, id: \.name){ ingredient in
                 HStack{
-                    Text("\(Int(ingredient.amount)) \(ingredient.measurement) \(ingredient.name)")
+                    Text("\(Int(ingredient.amount)) \(ingredient.measurementType.rawValue) \(ingredient.name)")
                         .padding(.trailing)
                     Button(action: {
                         //Edit Ingredient
@@ -104,17 +116,43 @@ struct AddRecipeView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
             }
+            
             Button("Add Ingredient"){
                 showPopover = true
             }
+            .foregroundColor(.black)
             .popover(isPresented: $showPopover) {
-                HStack(alignment: .top){
-                    Text("Amount")
-                        .font(.headline)
-                        .padding()
-                }
+                VStack(alignment: .center){
+                    //Name
+                    HStack{
+                        Text("Name:")
+                        TextField("Name", text: $name)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+                    }.padding(.leading)
+                    .padding(.trailing)
+                    
+                    //Amount
+                    HStack{
+                        Text("Amount:")
+                        TextField("Amount", text: $amount.value)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.numberPad)
+                    }.padding(.leading)
+                    .padding(.trailing)
+                    
+                    Text("Measurement Type")
+                    Picker("Choose a measurement Type", selection: $measurementType){
+                        ForEach(MeasurementType.allCases) { type in
+                            Text(type.rawValue.capitalized)
+                                .tag(type.id)
+                        }
+                    }
+                }.frame(width: 400, height: 200, alignment: .leading)
+                .background(Color.gray)
+                .animation(.easeInOut)
             }
         }
-        
     }
 }
+
