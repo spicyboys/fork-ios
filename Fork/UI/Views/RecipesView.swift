@@ -29,6 +29,7 @@ struct RecipesView: View {
                     Text("My Recipes")
                         .font(.largeTitle)
                         .padding()
+                    /*
                     NavigationLink(
                         destination: AddRecipeView(user),
                         isActive: $isAddingRecipe) {
@@ -37,6 +38,7 @@ struct RecipesView: View {
                             .font(.largeTitle)
                         
                     }
+                    */
                 }
                 .padding(.bottom)
                 .padding(.leading)
@@ -53,7 +55,7 @@ struct RecipesView: View {
             }
             .navigationBarHidden(true)
             .navigationBarTitle(Text(""))
-        }
+        }.accentColor(.black)
     }
 }
 

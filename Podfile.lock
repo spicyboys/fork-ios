@@ -223,6 +223,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - ExytePopupView (0.0.12)
   - Firebase (7.9.0):
     - Firebase/Core (= 7.9.0)
   - Firebase/Auth (7.9.0):
@@ -355,6 +356,7 @@ PODS:
     - SDWebImage (~> 5.10)
 
 DEPENDENCIES:
+  - ExytePopupView
   - Firebase
   - Firebase/Auth
   - Firebase/Firestore
@@ -366,6 +368,7 @@ SPEC REPOS:
     - abseil
     - AppAuth
     - BoringSSL-GRPC
+    - ExytePopupView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -391,6 +394,7 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  ExytePopupView: 93525e88546df6001e7f68f90b66b2e21a27f887
   Firebase: d8bd6bd34b4c7ed57bfdd056c66ff5adcdde53ab
   FirebaseAnalytics: 31b1269830dfe16687db3c60b76082c12bd6d527
   FirebaseAuth: 20625f04fdd213995249a82375b3dab39b1c136c
@@ -412,6 +416,6 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
 
-PODFILE CHECKSUM: c634f01f86d37c2b8426556a05c50130d1a4a0bc
+PODFILE CHECKSUM: 3d7ad5f87b8982f3ef412cbf04f0de9260688398
 
 COCOAPODS: 1.10.1

@@ -11,4 +11,5 @@ target 'Fork' do
   pod 'GoogleSignIn'
   pod 'SDWebImageSwiftUI'
   pod 'Firebase/Firestore'
+  pod 'ExytePopupView'
 end
