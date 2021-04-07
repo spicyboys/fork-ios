@@ -25,13 +25,12 @@ struct AddIngredientView: View {
     var body: some View {
         VStack(alignment: .center){
             //Name
-            
             HStack{
                 Text("Name:")
                 TextField("Name", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            }.padding()
-            
+            }
+            .padding()
             
             //Amount
             HStack{
@@ -39,8 +38,8 @@ struct AddIngredientView: View {
                 TextField("Amount", text: $amount.value)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
-            }.padding()
-            
+            }
+            .padding()
             
             //Measurement Type
             Group{
@@ -53,24 +52,31 @@ struct AddIngredientView: View {
             }
             .frame(width: .infinity, height: 100, alignment: .leading)
             
+            //Cancel and Add
             HStack{
+                
+                //Cancel Add Ingredient
                 Button(action: {
-                    //Cancel Add Ingredient
                     self.addingIngredient = false
                 }, label: {
                     Text("Cancel")
                         .font(.title2)
-                }).padding()
+                })
+                .foregroundColor(.black)
+                .padding()
                 
+                //Add Ingredient
                 Button(action: {
                     //Add Ingredient
                     let ingredient: Ingredient = Ingredient(["name": self.name,"amount":Double(self.amount.value) ?? 0.0,"measurement": MeasurementType.withLabel(self.measurementTypeString ?? MeasurementType.whole.rawValue) ?? MeasurementType.whole])
                     ingredients.append(ingredient)
                     self.addingIngredient = false
                 }, label: {
-                    Text("Save")
+                    Text("Add")
                         .font(.title2)
-                }).padding()
+                })
+                .foregroundColor(.black)
+                .padding()
             }
         }
     }
