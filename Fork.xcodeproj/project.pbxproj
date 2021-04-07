@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120EAE87261D523F0062689F /* AddDirectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120EAE86261D523E0062689F /* AddDirectionView.swift */; };
 		1231499D2600410A00E29F9E /* ForkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1231499C2600410A00E29F9E /* ForkApp.swift */; };
 		1231499F2600410A00E29F9E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1231499E2600410A00E29F9E /* HomeView.swift */; };
 		123149A12600410E00E29F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 123149A02600410E00E29F9E /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		128E62EB2614FBFC008FA91F /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128E62EA2614FBFC008FA91F /* Ingredient.swift */; };
 		128E62EE2614FEF4008FA91F /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128E62ED2614FEF4008FA91F /* Direction.swift */; };
 		128E62FB26195EAA008FA91F /* TextFieldWithPickerAsInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128E62FA26195EAA008FA91F /* TextFieldWithPickerAsInputField.swift */; };
+		129516C0261D497A00FD3B6C /* AddIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129516BF261D497A00FD3B6C /* AddIngredientView.swift */; };
 		592F1A705FD36E5D43F86BF3 /* Pods_Fork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */; };
 		A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FAF2607EFDE00E1E75C /* SignInButton.swift */; };
 		A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FB2260BDF8D00E1E75C /* LoginDelegate.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120EAE86261D523E0062689F /* AddDirectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDirectionView.swift; sourceTree = "<group>"; };
 		123149992600410A00E29F9E /* Fork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1231499C2600410A00E29F9E /* ForkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkApp.swift; sourceTree = "<group>"; };
 		1231499E2600410A00E29F9E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		128E62EA2614FBFC008FA91F /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		128E62ED2614FEF4008FA91F /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		128E62FA26195EAA008FA91F /* TextFieldWithPickerAsInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPickerAsInputField.swift; sourceTree = "<group>"; };
+		129516BF261D497A00FD3B6C /* AddIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientView.swift; sourceTree = "<group>"; };
 		26DCB56D218A362FEC8E9CFA /* Pods_Fork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F210EC4DF5D095958A9CBA /* Pods-Fork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.debug.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.debug.xcconfig"; sourceTree = "<group>"; };
 		6EBC06BF951A49B154205F03 /* Pods-Fork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fork.release.xcconfig"; path = "Target Support Files/Pods-Fork/Pods-Fork.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		12327DDC2612F72C006AC4DA /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				128E62AA2614317C008FA91F /* SearchBar.swift */,
 				A5484FAF2607EFDE00E1E75C /* SignInButton.swift */,
 				128E62FA26195EAA008FA91F /* TextFieldWithPickerAsInputField.swift */,
 			);
@@ -153,13 +158,14 @@
 		12327DE12612F796006AC4DA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1231499E2600410A00E29F9E /* HomeView.swift */,
+				A552D22B26127CC100640849 /* RootView.swift */,
 				123149BE2600430900E29F9E /* LoginView.swift */,
 				123CA6742612BA2C0045312E /* SettingsView.swift */,
+				1231499E2600410A00E29F9E /* HomeView.swift */,
 				123CA6712612B04B0045312E /* RecipesView.swift */,
-				128E62AA2614317C008FA91F /* SearchBar.swift */,
-				A552D22B26127CC100640849 /* RootView.swift */,
 				128E62AD261436F4008FA91F /* AddRecipeView.swift */,
+				129516BF261D497A00FD3B6C /* AddIngredientView.swift */,
+				120EAE86261D523E0062689F /* AddDirectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,7 +337,9 @@
 				123CA6722612B04B0045312E /* RecipesView.swift in Sources */,
 				123CA6752612BA2C0045312E /* SettingsView.swift in Sources */,
 				128E62AB2614317C008FA91F /* SearchBar.swift in Sources */,
+				120EAE87261D523F0062689F /* AddDirectionView.swift in Sources */,
 				A5484FB3260BDF8D00E1E75C /* LoginDelegate.swift in Sources */,
+				129516C0261D497A00FD3B6C /* AddIngredientView.swift in Sources */,
 				123149BF2600430900E29F9E /* LoginView.swift in Sources */,
 				128E62EE2614FEF4008FA91F /* Direction.swift in Sources */,
 				A552D22C26127CC100640849 /* RootView.swift in Sources */,

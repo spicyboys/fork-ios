@@ -24,6 +24,10 @@ enum MeasurementType: String, Equatable, Identifiable, CaseIterable {
     case pinch
     
     var id: String { self.rawValue }
+    
+    static func withLabel(_ label: String) -> MeasurementType? {
+            return self.allCases.first{ "\($0)" == label }
+        }
 }
     
 public struct Ingredient {

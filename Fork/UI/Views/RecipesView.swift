@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 struct RecipesView: View {
     let user: User
+    
     @ObservedObject var userRecipes: UserRecipes;
     
     init(_ user: User) {
@@ -29,7 +30,6 @@ struct RecipesView: View {
                     Text("My Recipes")
                         .font(.largeTitle)
                         .padding()
-                    /*
                     NavigationLink(
                         destination: AddRecipeView(user),
                         isActive: $isAddingRecipe) {
@@ -38,7 +38,6 @@ struct RecipesView: View {
                             .font(.largeTitle)
                         
                     }
-                    */
                 }
                 .padding(.bottom)
                 .padding(.leading)

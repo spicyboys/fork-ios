@@ -22,21 +22,19 @@ struct AddRecipeView: View {
     @State private var totalTime = NumbersOnly()
     @State private var description: String = ""
     @State private var tags: String = ""
-    @State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": MeasurementType.whole]),Ingredient(["name": "olive oil","amount":2.0,"measurement": MeasurementType.tsp]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": MeasurementType.cp])]
+    @State private var ingredients: [Ingredient] = []
+    
+  //Test Ingredients
+  //@State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": MeasurementType.whole]),Ingredient(["name": "olive oil","amount":2.0,"measurement": MeasurementType.tsp]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": MeasurementType.cp])]
+    
     @State private var directions: [Direction] = []
     
     //For Adding Ingredient Popover
-    @State private var amount = NumbersOnly()
-    @State private var measurementType: MeasurementType = MeasurementType.whole
-    @State private var measurementTypeString: String? = nil
-    @State private var name = ""
-    @State private var showPopover = false
-    @State private var measurementTypesAsStrings: [String] = ["tsp","tbsp","cp","qrt","pt","gl","ml","L","g","kg","lb","oz","whole","pinch"]
-    
-    @State private var selectedIndex = 0
+    @State private var addingIngredient = false
     
     //For Adding Direction Popover
-    
+    @State private var addingDirection = false
+
     init(_ user: User) {
         self.userRecipes = UserRecipes(user);
     }
@@ -88,26 +86,15 @@ struct AddRecipeView: View {
                        maxHeight: 45,
                        alignment: .topLeading)
                 
-                /*Tags
-                 HStack(alignment: .top){
-                 Text("Tags:")
-                 TextEditor(text: $tags)
-                 .foregroundColor(Color.blue)
-                 }
-                 .padding(.leading)
-                 .frame(minWidth: 0,
-                 maxWidth: .infinity,
-                 minHeight: 0,
-                 maxHeight: 45,
-                 alignment: .topLeading)
-                 */
                 
-                //******   Add Ingredient
+                //Add Ingredient
                 Button("Add Ingredient"){
-                    showPopover = true
+                    addingIngredient = true
+                    print("clicked button")
                 }
                 .foregroundColor(.black)
                 .padding(.leading)
+                .sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
                 
                 //Ingredients
                 List(self.ingredients, id: \.name){ ingredient in
@@ -133,63 +120,6 @@ struct AddRecipeView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-        }.popup(isPresented: $showPopover, view: {
-            VStack(alignment: .center){
-                //Name
-                HStack{
-                    Text("Name:")
-                    TextField("Name", text: $name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }.padding()
-                
-                //Amount
-                HStack{
-                    Text("Amount:")
-                    TextField("Amount", text: $amount.value)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.numberPad)
-                }.padding()
-                
-                //Measurement Type
-                HStack{
-                    Text("Measurement Type:")
-                        .padding()
-                    TextFieldWithPickerAsInputView(data: self.measurementTypesAsStrings, placeholder: "Measurement Type", selectionIndex: self.$selectedIndex, text: self.$measurementTypeString)
-                        .padding()
-                }
-                .frame(width:.infinity, height: 35, alignment: .leading)
-                
-                HStack{
-                    Button(action: {
-                        //Cancel Add Ingredient
-                        self.measurementType = MeasurementType.whole
-                        self.amount.value = "0"
-                        self.measurementTypeString = "whole"
-                        self.name = ""
-                        self.showPopover = false
-                    }, label: {
-                        Text("Cancel")
-                            .font(.title2)
-                    }).padding()
-                    Button(action: {
-                        //Add Ingredient
-                        let ingredient: Ingredient = Ingredient(["name": self.name,"amount":Double(self.amount.value),"measurement": self.$measurementType])
-                        self.ingredients.append(ingredient)
-                        self.measurementType = MeasurementType.whole
-                        self.amount.value = "0"
-                        self.measurementTypeString = "whole"
-                        self.name = ""
-                        self.showPopover = false
-                        showPopover = false
-                    }, label: {
-                        Text("Save")
-                            .font(.title2)
-                    }).padding()
-                }
-            }
-            .background(Color.gray)
-                        .cornerRadius(30.0)
-            .frame(width: 400, height: 500, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        })
+        }
     }
 }
