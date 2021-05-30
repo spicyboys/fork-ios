@@ -12,7 +12,7 @@ struct SettingsView: View {
     let user: User
     
     var body: some View {
-        Text("Hi \(user.displayName!), this is the Settings UI")
+        Text("Settings")
             .padding()
             .font(.title2)
     }

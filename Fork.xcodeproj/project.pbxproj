@@ -27,7 +27,6 @@
 		A50AD0C026631F5B007C0592 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = A50AD0BF26631F5B007C0592 /* PopupView */; };
 		A50AD0C426632C9D007C0592 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A50AD0C326632C9D007C0592 /* SDWebImageSwiftUI */; };
 		A50AD0C8266333B7007C0592 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50AD0C7266333B7007C0592 /* GoogleService-Info.plist */; };
-		A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5484FAF2607EFDE00E1E75C /* SignInButton.swift */; };
 		A552D22926127BF100640849 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552D22826127BF100640849 /* SessionStore.swift */; };
 		A552D22C26127CC100640849 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552D22B26127CC100640849 /* RootView.swift */; };
 		A552D24F2612CEF400640849 /* UserRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552D24E2612CEF400640849 /* UserRecipes.swift */; };
@@ -54,7 +53,6 @@
 		129516BF261D497A00FD3B6C /* AddIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientView.swift; sourceTree = "<group>"; };
 		A50AD0C1266327CD007C0592 /* Fork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fork.entitlements; sourceTree = "<group>"; };
 		A50AD0C7266333B7007C0592 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A5484FAF2607EFDE00E1E75C /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		A552D22826127BF100640849 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		A552D22B26127CC100640849 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A552D24E2612CEF400640849 /* UserRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipes.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				128E62AA2614317C008FA91F /* SearchBar.swift */,
-				A5484FAF2607EFDE00E1E75C /* SignInButton.swift */,
 				128E62FA26195EAA008FA91F /* TextFieldWithPickerAsInputField.swift */,
 			);
 			path = "View Components";
@@ -264,7 +261,6 @@
 				128E62EB2614FBFC008FA91F /* Ingredient.swift in Sources */,
 				128E62E72614E10A008FA91F /* NumberOnly.swift in Sources */,
 				128E62AE261436F4008FA91F /* AddRecipeView.swift in Sources */,
-				A5484FB02607EFDE00E1E75C /* SignInButton.swift in Sources */,
 				128E62FB26195EAA008FA91F /* TextFieldWithPickerAsInputField.swift in Sources */,
 				123CA6722612B04B0045312E /* RecipesView.swift in Sources */,
 				123CA6752612BA2C0045312E /* SettingsView.swift in Sources */,

@@ -12,7 +12,8 @@ import CryptoKit
 
 struct LoginView: View {
     
-    @State var currentNonce:String?
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @State var currentNonce: String?
     
     var body: some View {
         VStack{
@@ -28,7 +29,7 @@ struct LoginView: View {
                     request.requestedScopes = [.fullName, .email]
                     request.nonce = sha256(nonce)
                 },
-                
+
                 onCompletion: { result in
                     switch result {
                     case .success(let authResults):
@@ -69,13 +70,13 @@ struct LoginView: View {
                     
                 }
             )
+            .signInWithAppleButtonStyle(colorScheme == .light ? .white : .black)
             .padding()
         }
     }
     
     
     
-    //Hashing function using CryptoKit
     func sha256(_ input: String) -> String {
         let inputData = Data(input.utf8)
         let hashedData = SHA256.hash(data: inputData)
