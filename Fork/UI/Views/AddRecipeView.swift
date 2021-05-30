@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseFirestore
 import Combine
-import ExytePopupView
+import PopupView
 
 struct AddRecipeView: View {
     

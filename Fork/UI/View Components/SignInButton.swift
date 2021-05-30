@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-import GoogleSignIn
+import AuthenticationServices
 
 struct SignInButton: UIViewRepresentable {
-    func makeUIView(context: Context) -> GIDSignInButton {
-        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.first?.rootViewController
-        let button = GIDSignInButton()
-        button.colorScheme = .light
-        return button
+    typealias UIViewType = ASAuthorizationAppleIDButton
+
+    func makeUIView(context: Context) -> UIViewType {
+        return ASAuthorizationAppleIDButton()
     }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {}
+
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+    }
 }
