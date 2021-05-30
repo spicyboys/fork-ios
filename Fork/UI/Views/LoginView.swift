@@ -20,7 +20,6 @@ struct LoginView: View {
             Text("Welcome to Fork")
                 .font(.largeTitle)
                 .padding()
-            Text("Sign In Below")
             SignInWithAppleButton(
                 
                 onRequest: { request in
@@ -70,7 +69,8 @@ struct LoginView: View {
                     
                 }
             )
-            .signInWithAppleButtonStyle(colorScheme == .light ? .white : .black)
+            .signInWithAppleButtonStyle(colorScheme == .light ? .black : .white)
+            .frame(width: 250, height: 50)
             .padding()
         }
     }
