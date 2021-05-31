@@ -52,7 +52,6 @@ struct RecipesView: View {
                 }.listStyle(PlainListStyle())
             }
             .navigationBarHidden(true)
-            .navigationBarTitle(Text(""))
         }.accentColor(.black)
     }
 }

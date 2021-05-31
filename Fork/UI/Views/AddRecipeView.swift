@@ -26,7 +26,6 @@ struct AddRecipeView: View {
     
   //Test Ingredients
   //@State private var ingredients: [Ingredient] = [Ingredient(["name": "russet potatoes","amount":4.0,"measurement": MeasurementType.whole]),Ingredient(["name": "olive oil","amount":2.0,"measurement": MeasurementType.tsp]),Ingredient(["name": "all-purpose flour","amount":2.0,"measurement": MeasurementType.cp])]
-    
     @State private var directions: [Direction] = []
     
     //For Adding Ingredient Popover
@@ -41,7 +40,7 @@ struct AddRecipeView: View {
     }
     
     var body: some View {
-        ZStack{
+
             VStack(alignment: .leading){
                 
                 //Header
@@ -82,6 +81,8 @@ struct AddRecipeView: View {
                 }
                 .padding(.leading)
            
+                Divider()
+
                 //Add Ingredient
                 Button("Add Ingredient"){
                     addingIngredient = true
@@ -90,7 +91,7 @@ struct AddRecipeView: View {
                 .foregroundColor(.black)
                 .padding(.leading)
                 .sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
-                
+                                
                 //Ingredients
                 ScrollView(.vertical) {
                     VStack(spacing: 10) {
@@ -157,9 +158,7 @@ struct AddRecipeView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }.frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
-            
-               }.navigationBarTitleDisplayMode(.inline)
-            }
+               }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
