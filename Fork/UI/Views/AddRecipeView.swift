@@ -35,6 +35,7 @@ struct AddRecipeView: View {
     //For Adding Direction Popover
     @State private var addingDirection = false
 
+    @State private var screenHeight = UIScreen.main.bounds.height
     init(_ user: User) {
         self.userRecipes = UserRecipes(user);
     }
@@ -74,9 +75,10 @@ struct AddRecipeView: View {
                 .padding(.leading)
                 
                 //Description
-                HStack(alignment: .top){
+                HStack{
                     Text("Description:")
                     TextField("Description", text: $description)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 .padding(.leading)
            
@@ -90,27 +92,33 @@ struct AddRecipeView: View {
                 .sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
                 
                 //Ingredients
-                if (ingredients.count > 0) {
-                List(self.ingredients, id: \.name){ ingredient in
-                    HStack{
-                        Text("\(Int(ingredient.amount)) \(ingredient.measurementType.rawValue) \(ingredient.name)")
-                        Button(action: {
-                            //Edit Ingredient
-                        }, label: {
-                            Text("Edit")
-                                .foregroundColor(.black)
-                        })
-                        .buttonStyle(PlainButtonStyle())
-                        Button(action: {
-                            self.ingredients = self.ingredients.filter { $0.name != ingredient.name }
-                        }, label: {
-                            Text("Delete")
-                                .foregroundColor(.black)
-                        })
-                        .buttonStyle(PlainButtonStyle())
+                ScrollView(.vertical) {
+                    VStack(spacing: 10) {
+                        ForEach(self.ingredients, id: \.name) {ingredient in
+                            Group{
+                                HStack{
+                                    Text("\(Int(ingredient.amount)) \(ingredient.measurementType.rawValue) \(ingredient.name)")
+                                    Button(action: {
+                                        //Edit Ingredient
+                                    }, label: {
+                                        Text("Edit")
+                                            .foregroundColor(.black)
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                    Button(action: {
+                                        self.ingredients = self.ingredients.filter { $0.name != ingredient.name }
+                                    }, label: {
+                                        Text("Delete")
+                                            .foregroundColor(.black)
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                                .padding(.leading)
+                            }
+                        }
                     }
-                }
-                }
+                }.frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
+                
                 
                 //Add Direction
                 Button("Add Direction"){
@@ -122,31 +130,36 @@ struct AddRecipeView: View {
                 .sheet(isPresented: $addingDirection){ AddDirectionView(directions: $directions, addingDirection: $addingDirection)}
                 
                 //Directions
-                List(self.directions, id: \.index){ direction in
-                    HStack{
-                        Text("\(Int(direction.index)). \(direction.text)")
-                            .padding(.trailing)
-                        Button(action: {
-                            //Edit Ingredient
-                        }, label: {
-                            Text("Edit")
-                                .foregroundColor(.black)
-                        })
-                        .padding(.trailing)
-                        .buttonStyle(PlainButtonStyle())
-                        Button(action: {
-                            self.directions = self.directions.filter { $0.index != direction.index }
-                        }, label: {
-                            Text("Delete")
-                                .foregroundColor(.black)
-                        })
-                        .buttonStyle(PlainButtonStyle())
+                ScrollView(.vertical) {
+                    VStack(spacing: 10) {
+                        ForEach(self.directions, id: \.index) {direction in
+                            Group{
+                                HStack{
+                                    Text("\(Int(direction.index) + 1). \(direction.text)")
+                                    Button(action: {
+                                        //Edit Ingredient
+                                    }, label: {
+                                        Text("Edit")
+                                            .foregroundColor(.black)
+                                    })
+                                    .padding(.trailing)
+                                    .buttonStyle(PlainButtonStyle())
+                                    Button(action: {
+                                        self.directions = self.directions.filter { $0.index != direction.index }
+                                    }, label: {
+                                        Text("Delete")
+                                            .foregroundColor(.black)
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                }.padding(.leading)
+                                }
+                        }
                     }
-                }
-
+                    .frame(maxWidth: .infinity)
+                }.frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
+            
+               }.navigationBarTitleDisplayMode(.inline)
             }
-            .navigationBarTitleDisplayMode(.inline)
-        }
     }
 }
 
