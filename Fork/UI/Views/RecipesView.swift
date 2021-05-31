@@ -34,7 +34,6 @@ struct RecipesView: View {
                         destination: AddRecipeView(user),
                         isActive: $isAddingRecipe) {
                         Text("+")
-                            .foregroundColor(.black)
                             .font(.largeTitle)
                         
                     }

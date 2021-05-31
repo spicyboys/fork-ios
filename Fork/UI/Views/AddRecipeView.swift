@@ -76,17 +76,10 @@ struct AddRecipeView: View {
                 //Description
                 HStack(alignment: .top){
                     Text("Description:")
-                    TextEditor(text: $description)
-                        .foregroundColor(Color.green)
+                    TextField("Description", text: $description)
                 }
                 .padding(.leading)
-                .frame(minWidth: 0,
-                       maxWidth: .infinity,
-                       minHeight: 0,
-                       maxHeight: 45,
-                       alignment: .topLeading)
-                
-                
+           
                 //Add Ingredient
                 Button("Add Ingredient"){
                     addingIngredient = true
@@ -97,17 +90,16 @@ struct AddRecipeView: View {
                 .sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
                 
                 //Ingredients
+                if (ingredients.count > 0) {
                 List(self.ingredients, id: \.name){ ingredient in
                     HStack{
                         Text("\(Int(ingredient.amount)) \(ingredient.measurementType.rawValue) \(ingredient.name)")
-                            .padding(.trailing)
                         Button(action: {
                             //Edit Ingredient
                         }, label: {
                             Text("Edit")
                                 .foregroundColor(.black)
                         })
-                        .padding(.trailing)
                         .buttonStyle(PlainButtonStyle())
                         Button(action: {
                             self.ingredients = self.ingredients.filter { $0.name != ingredient.name }
@@ -118,8 +110,48 @@ struct AddRecipeView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                 }
+                }
+                
+                //Add Direction
+                Button("Add Direction"){
+                    addingDirection = true
+                    print("clicked button")
+                }
+                .foregroundColor(.black)
+                .padding(.leading)
+                .sheet(isPresented: $addingDirection){ AddDirectionView(directions: $directions, addingDirection: $addingDirection)}
+                
+                //Directions
+                List(self.directions, id: \.index){ direction in
+                    HStack{
+                        Text("\(Int(direction.index)). \(direction.text)")
+                            .padding(.trailing)
+                        Button(action: {
+                            //Edit Ingredient
+                        }, label: {
+                            Text("Edit")
+                                .foregroundColor(.black)
+                        })
+                        .padding(.trailing)
+                        .buttonStyle(PlainButtonStyle())
+                        Button(action: {
+                            self.directions = self.directions.filter { $0.index != direction.index }
+                        }, label: {
+                            Text("Delete")
+                                .foregroundColor(.black)
+                        })
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                }
+
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
