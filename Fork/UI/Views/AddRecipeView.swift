@@ -80,17 +80,18 @@ struct AddRecipeView: View {
                 Divider()
 
                 //Add Ingredient
-                Button("Add Ingredient"){
+                Button(action: {
                     addingIngredient = true
-                    print("clicked button")
+                }){
+                    Text("Add Ingredient")
+                        .font(.title2)
                 }
-                .foregroundColor(.black)
                 .padding(.leading)
                 .popover(isPresented: $addingIngredient){
                     AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient)
                 }
-                //.sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
-                                
+                .foregroundColor(Color("Font Color"))
+
                 //Ingredients
                 ScrollView(.vertical) {
                     VStack(spacing: 10) {
@@ -98,18 +99,17 @@ struct AddRecipeView: View {
                             Group{
                                 HStack{
                                     Text("\(Int(ingredient.amount)) \(ingredient.measurementType.rawValue) \(ingredient.name)")
+                                        .padding(.leading)
                                     Button(action: {
                                         //Edit Ingredient
                                     }, label: {
                                         Text("Edit")
-                                            .foregroundColor(.black)
                                     })
                                     .buttonStyle(PlainButtonStyle())
                                     Button(action: {
                                         self.ingredients = self.ingredients.filter { $0.name != ingredient.name }
                                     }, label: {
                                         Text("Delete")
-                                            .foregroundColor(.black)
                                     })
                                     .buttonStyle(PlainButtonStyle())
                                 }
@@ -121,15 +121,17 @@ struct AddRecipeView: View {
                 .frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
                 
                 
-                //Add Direction
-                Button("Add Direction"){
-                    addingDirection = true
-                    print("clicked button")
+                //Add Direction
+                Button(action : {
+                        addingDirection = true
+                }){
+                    Text("Add Direction")
+                        .font(.title2)
                 }
-                .foregroundColor(.black)
+                .foregroundColor(Color("Font Color"))
                 .padding(.leading)
                 .sheet(isPresented: $addingDirection){ AddDirectionView(directions: $directions, addingDirection: $addingDirection)}
-                
+                    
                 //Directions
                 ScrollView(.vertical) {
                 VStack(spacing: 10) {
@@ -137,11 +139,11 @@ struct AddRecipeView: View {
                         Group{
                             HStack{
                                 Text("\(Int(direction.index) + 1). \(direction.text)")
+                                    .padding(.leading)
                                 Button(action: {
                                     //Edit Ingredient
                                 }, label: {
                                     Text("Edit")
-                                        .foregroundColor(.black)
                                 })
                                 .padding(.trailing)
                                 .buttonStyle(PlainButtonStyle())
@@ -149,7 +151,6 @@ struct AddRecipeView: View {
                                     self.directions = self.directions.filter { $0.index != direction.index }
                                 }, label: {
                                     Text("Delete")
-                                        .foregroundColor(.black)
                                 })
                                 .buttonStyle(PlainButtonStyle())
                             }.padding(.leading)
