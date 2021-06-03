@@ -43,11 +43,6 @@ struct AddRecipeView: View {
 
             VStack(alignment: .leading){
                 Group {
-                //Header
-                Text("Add a Recipe")
-                    .font(.largeTitle)
-                    .padding()
-                
                 //Title
                 HStack{
                     Text("Title:")
@@ -169,7 +164,7 @@ struct AddRecipeView: View {
                 Spacer() // THIS FIXES EVERYTHING IN NAVIGATION VIEWS FOR SOME GOD DAMN REASON APPLE FIX YOUR FUCKING SHIT
             }
             .navigationBarHidden(false)
-            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarTitle("Add Recipe", displayMode: .large)
     }
 }
 

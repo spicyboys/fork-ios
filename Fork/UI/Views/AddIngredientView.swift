@@ -24,6 +24,12 @@ struct AddIngredientView: View {
     
     var body: some View {
         VStack(alignment: .center){
+            Group{
+                
+            Text("Add Ingredient")
+                .font(.largeTitle)
+                .padding()
+                
             //Name
             HStack{
                 Text("Name:")
@@ -47,10 +53,9 @@ struct AddIngredientView: View {
                     Text("Measurement Type:")
                         .padding()
                     TextFieldWithPickerAsInputView(data: self.measurementTypesAsStrings, placeholder: "Measurement Type", selectionIndex: self.$selectedIndex, text: self.$measurementTypeString)
-                        .padding()
+                        .frame(width: .infinity, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) //need to fix this later
                 }
             }
-            .frame(width: .infinity, height: 100, alignment: .leading)
             
             //Cancel and Add
             HStack{
@@ -75,9 +80,11 @@ struct AddIngredientView: View {
                     Text("Add")
                         .font(.title2)
                 })
-                .foregroundColor(.black)
                 .padding()
             }
         }
+            
+        Spacer()
+    }
     }
 }
