@@ -42,7 +42,7 @@ struct AddRecipeView: View {
     var body: some View {
 
             VStack(alignment: .leading){
-                
+                Group {
                 //Header
                 Text("Add a Recipe")
                     .font(.largeTitle)
@@ -53,7 +53,8 @@ struct AddRecipeView: View {
                     Text("Title:")
                     TextField("Title", text: $title)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                }.padding(.leading)
+                }
+                .padding(.leading)
                 
                 //Default Servings
                 HStack{
@@ -90,7 +91,10 @@ struct AddRecipeView: View {
                 }
                 .foregroundColor(.black)
                 .padding(.leading)
-                .sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
+                .popover(isPresented: $addingIngredient){
+                    AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient)
+                }
+                //.sheet(isPresented: $addingIngredient){ AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient) }
                                 
                 //Ingredients
                 ScrollView(.vertical) {
@@ -118,7 +122,8 @@ struct AddRecipeView: View {
                             }
                         }
                     }
-                }.frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
+                }
+                .frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
                 
                 
                 //Add Direction
@@ -132,33 +137,39 @@ struct AddRecipeView: View {
                 
                 //Directions
                 ScrollView(.vertical) {
-                    VStack(spacing: 10) {
-                        ForEach(self.directions, id: \.index) {direction in
-                            Group{
-                                HStack{
-                                    Text("\(Int(direction.index) + 1). \(direction.text)")
-                                    Button(action: {
-                                        //Edit Ingredient
-                                    }, label: {
-                                        Text("Edit")
-                                            .foregroundColor(.black)
-                                    })
-                                    .padding(.trailing)
-                                    .buttonStyle(PlainButtonStyle())
-                                    Button(action: {
-                                        self.directions = self.directions.filter { $0.index != direction.index }
-                                    }, label: {
-                                        Text("Delete")
-                                            .foregroundColor(.black)
-                                    })
-                                    .buttonStyle(PlainButtonStyle())
-                                }.padding(.leading)
-                                }
-                        }
+                VStack(spacing: 10) {
+                    ForEach(self.directions, id: \.index) {direction in
+                        Group{
+                            HStack{
+                                Text("\(Int(direction.index) + 1). \(direction.text)")
+                                Button(action: {
+                                    //Edit Ingredient
+                                }, label: {
+                                    Text("Edit")
+                                        .foregroundColor(.black)
+                                })
+                                .padding(.trailing)
+                                .buttonStyle(PlainButtonStyle())
+                                Button(action: {
+                                    self.directions = self.directions.filter { $0.index != direction.index }
+                                }, label: {
+                                    Text("Delete")
+                                        .foregroundColor(.black)
+                                })
+                                .buttonStyle(PlainButtonStyle())
+                            }.padding(.leading)
+                            }
                     }
-                    .frame(maxWidth: .infinity)
-                }.frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
-               }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+                }
+                .frame(maxWidth: .infinity)
+            }
+                .frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
+                }
+                
+                Spacer() // THIS FIXES EVERYTHING IN NAVIGATION VIEWS FOR SOME GOD DAMN REASON APPLE FIX YOUR FUCKING SHIT
+            }
+            .navigationBarHidden(false)
+            .navigationBarTitle("", displayMode: .inline)
     }
 }
 
@@ -167,3 +178,5 @@ extension View {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+
+

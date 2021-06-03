@@ -15,18 +15,18 @@ struct HomeView: View {
     @State private var selection = 0
     
     var body: some View {
-        TabView(selection: $selection){
-            RecipesView(user)
-                .tabItem {
-                    Text("Recipes")
-                    Image(systemName: "heart.fill")
-                }.tag(0)
-            SettingsView(user: user)
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Settings")
-                }.tag(1)
+            TabView(selection: $selection){
+                RecipesView(user)
+                    .tabItem {
+                        Text("Recipes")
+                        Image(systemName: "heart.fill")
+                    }.tag(0)
+                SettingsView(user: user)
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                        Text("Settings")
+                    }.tag(1)
+            }
         }
     }
 
-}

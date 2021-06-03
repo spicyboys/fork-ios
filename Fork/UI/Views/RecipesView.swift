@@ -23,19 +23,14 @@ struct RecipesView: View {
     @State private var isAddingRecipe = false
     
     var body: some View {
+        NavigationView{
             VStack(alignment: .leading){
                 //Header
                 HStack{
                     Text("My Recipes")
                         .font(.largeTitle)
                         .padding()
-                    Button("+") {
-                        isAddingRecipe.toggle()
-                    }
-                    .font(.largeTitle)
-                    .sheet(isPresented: $isAddingRecipe){
-                        AddRecipeView(user)
-                    }
+                    link(label: "+", destination: AddRecipeView(user))
                 }
                 .padding(.bottom)
                 .padding(.leading)
@@ -49,9 +44,18 @@ struct RecipesView: View {
                 { recipe in
                     Text(recipe.name)
                 }.listStyle(PlainListStyle())
-            }
-            .navigationBarHidden(false)
+            }.navigationBarHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
+        }
     }
+    
+    private func link<Destination: View>(label: String, destination: Destination) -> some View {
+            return NavigationLink(destination: destination) {
+                HStack {
+                    Text(label)
+                        .font(.largeTitle)
+                }
+            }
+        }
+
 }
-
-
