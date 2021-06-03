@@ -14,7 +14,8 @@ struct RootView: View {
         if session.user == nil {
             LoginView()
         } else {
-            HomeView(user: session.user!)
+            //HomeView(user: session.user!)
+            RecipesView(session.user!)
         }
     }
 }
