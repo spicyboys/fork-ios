@@ -134,32 +134,32 @@ struct AddRecipeView: View {
                     
                 //Directions
                 ScrollView(.vertical) {
-                VStack(spacing: 10) {
-                    ForEach(self.directions, id: \.index) {direction in
-                        Group{
-                            HStack{
-                                Text("\(Int(direction.index) + 1). \(direction.text)")
-                                    .padding(.leading)
-                                Button(action: {
-                                    //Edit Ingredient
-                                }, label: {
-                                    Text("Edit")
-                                })
-                                .padding(.trailing)
-                                .buttonStyle(PlainButtonStyle())
-                                Button(action: {
-                                    self.directions = self.directions.filter { $0.index != direction.index }
-                                }, label: {
-                                    Text("Delete")
-                                })
-                                .buttonStyle(PlainButtonStyle())
-                            }.padding(.leading)
+                    VStack(spacing: 10) {
+                        ForEach(self.directions, id: \.index) {direction in
+                            Group{
+                                HStack{
+                                    Text("\(Int(direction.index) + 1). \(direction.text)")
+                                        .padding(.leading)
+                                    Button(action: {
+                                        //Edit Ingredient
+                                    }, label: {
+                                        Text("Edit")
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                    Button(action: {
+                                        self.directions = self.directions.filter { $0.index != direction.index }
+                                    }, label: {
+                                        Text("Delete")
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                                .padding(.leading)
                             }
                     }
                 }
                 .frame(maxWidth: .infinity)
             }
-                .frame(height: CGFloat(self.ingredients.count * (Int(self.screenHeight) / 18)))
+                .frame(height: CGFloat(self.directions.count * (Int(self.screenHeight) / 18)))
                 }
                 
                 Spacer() // THIS FIXES EVERYTHING IN NAVIGATION VIEWS FOR SOME GOD DAMN REASON APPLE FIX YOUR FUCKING SHIT
