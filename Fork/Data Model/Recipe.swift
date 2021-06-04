@@ -6,9 +6,19 @@
 //
 
 public struct Recipe {
-    let name: String
+    var title: String
+    var defaultServings: Int
+    var totalTime: Int
+    var description: String
+    var ingredients: [Ingredient]
+    var directions: [Direction]
     
     init(_ data: [String: Any]) {
-        self.name = data["name"] as! String;
+        self.title = data["title"] as! String
+        self.defaultServings = data["defaultServings"] as! Int
+        self.description = data["description"] as! String
+        self.totalTime = data["totalTime"] as! Int
+        self.ingredients = data["ingredients"] as! [Ingredient]
+        self.directions = data["directions"] as! [Direction]
     }
 }
