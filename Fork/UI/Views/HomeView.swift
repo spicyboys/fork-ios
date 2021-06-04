@@ -10,7 +10,7 @@ import Firebase
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    let user: `User`
+    let user: User
     
     @State private var selection = 0
     

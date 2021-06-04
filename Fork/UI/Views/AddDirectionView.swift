@@ -19,12 +19,17 @@ struct AddDirectionView: View {
             Text("Add a Direction")
                 .font(.largeTitle)
                 .padding()
-            
-            HStack{
+            Spacer()
+            HStack(alignment: .top, spacing: 10){
                 Text("\(directions.count + 1). ")
                     .padding(.leading)
-                TextField("Direction", text: $text)
+                    .padding(.top, 8)
+                    .font(.title3)
+                //TextField("Direction", text: $text)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextEditor(text: $text)
+                    .padding(.leading)
+                Spacer()
             }
             
             HStack{

@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Direction {
-    let index: Int
-    let text: String
+    var index: Int
+    var text: String
     
     init(_ data: [String: Any]){
         self.index = data["index"] as! Int;
