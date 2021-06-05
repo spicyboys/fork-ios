@@ -30,7 +30,13 @@ struct RecipesView: View {
                     Text("My Recipes")
                         .font(.largeTitle)
                         .padding()
-                    link(label: "+", destination: AddRecipeView(user))
+                    NavigationLink(destination: AddRecipeView(user, isAddingRecipe: self.$isAddingRecipe) , isActive: self.$isAddingRecipe) { EmptyView() }
+                    Button(action: {
+                        self.isAddingRecipe = true
+                    }, label: {
+                        Text("+")
+                            .font(.largeTitle)
+                    })
                 }
                 .padding(.bottom)
                 .padding(.leading)
@@ -40,10 +46,11 @@ struct RecipesView: View {
                     .padding(.top, -30)
                 
                 // Recipe List
-                List((self.userRecipes.recipes ?? []).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) }), id: \.name)
+                List((self.userRecipes.recipes ?? []).filter({ searchText.isEmpty ? true : $0.title.contains(searchText) }), id: \.title)
                 { recipe in
-                    Text(recipe.name)
+                    Text(recipe.title)
                 }.listStyle(PlainListStyle())
+            
             }.navigationBarHidden(true)
             .navigationBarTitle("", displayMode: .inline)
         }

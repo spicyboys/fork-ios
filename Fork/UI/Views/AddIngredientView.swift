@@ -60,7 +60,7 @@ struct AddIngredientView: View {
             //Cancel and Add
             HStack{
                 
-                //Cancel Add Ingredient
+                //Cancel
                 Button(action: {
                     self.addingIngredient = false
                 }, label: {

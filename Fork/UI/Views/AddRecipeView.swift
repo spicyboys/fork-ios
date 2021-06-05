@@ -34,9 +34,13 @@ struct AddRecipeView: View {
     //For Adding Direction Popover
     @State private var addingDirection = false
     
+    @Binding var isAddingRecipe: Bool
+    
     @State private var screenHeight = UIScreen.main.bounds.height
-    init(_ user: User) {
-        self.userRecipes = UserRecipes(user);
+    
+    init(_ user: User, isAddingRecipe: Binding<Bool>) {
+        userRecipes = UserRecipes(user);
+        _isAddingRecipe = isAddingRecipe
     }
     
     var body: some View {
@@ -90,7 +94,6 @@ struct AddRecipeView: View {
                 .popover(isPresented: $addingIngredient){
                     AddIngredientView(ingredients: $ingredients, addingIngredient: $addingIngredient)
                 }
-                .foregroundColor(Color("Font Color"))
                 
                 //Ingredients List to Add
                 ScrollView(.vertical) {
@@ -131,7 +134,6 @@ struct AddRecipeView: View {
                     Text("Add Direction")
                         .font(.title3)
                 }
-                .foregroundColor(Color("Font Color"))
                 .padding(.leading)
                 .sheet(isPresented: $addingDirection){ AddDirectionView(directions: $directions, addingDirection: $addingDirection)}
                 
@@ -169,6 +171,31 @@ struct AddRecipeView: View {
                     }
                 }
                 .frame(height: CGFloat(self.directions.count * (Int(self.screenHeight) / 18)))
+                    
+                //Add/Cancel Buttons
+
+                HStack(alignment: .bottom, spacing: 10){
+                    Spacer()
+                    
+                    Button(action: {
+                        let recipeToAdd: Recipe = Recipe(["title": self.title, "defaultServings": Int(self.defaultServings.value) as Any, "totalTime" : Int(self.totalTime.value) as Any, "description" : self.description, "ingredients" : self.ingredients, "directions" : self.directions])
+                        self.userRecipes.recipes?.append(recipeToAdd)
+                        print(self.userRecipes.recipes?.count)
+                        self.isAddingRecipe = false
+                    }, label: {
+                        Text("Add")
+                            .font(.title3)
+                    })
+                    
+                    Button(action: {
+                    }, label: {
+                        Text("Cancel")
+                            .font(.title3)
+                    })
+                    .padding(.leading)
+                    
+                    Spacer()
+                }
             }
             
             Spacer() // THIS FIXES EVERYTHING IN NAVIGATION VIEWS FOR SOME GOD DAMN REASON APPLE FIX YOUR FUCKING SHIT

@@ -14,11 +14,11 @@ public struct Recipe {
     var directions: [Direction]
     
     init(_ data: [String: Any]) {
-        self.title = data["title"] as! String
-        self.defaultServings = data["defaultServings"] as! Int
-        self.description = data["description"] as! String
-        self.totalTime = data["totalTime"] as! Int
-        self.ingredients = data["ingredients"] as! [Ingredient]
-        self.directions = data["directions"] as! [Direction]
+        self.title = data["title"] as? String ?? ""
+        self.defaultServings = data["defaultServings"] as? Int ?? 1
+        self.description = data["description"] as? String ?? ""
+        self.totalTime = data["totalTime"] as? Int ?? 1
+        self.ingredients = data["ingredients"] as? [Ingredient] ?? []
+        self.directions = data["directions"] as? [Direction] ?? []
     }
 }
